@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>SynSaveinstance Next — Полная Master Roadmap M0–M8</title>
+<style>
+:root{
+  --bg:#070a0e;--bg2:#0a0f15;--panel:#0f151c;--panel2:#141c25;--line:#25323f;--line2:#1b2530;
+  --text:#f5f7fa;--muted:#98a6b6;--muted2:#6d7b8b;
+  --green:#4ade80;--greenbg:rgba(74,222,128,.10);
+  --amber:#f4c75b;--amberbg:rgba(244,199,91,.10);
+  --blue:#78aaff;--bluebg:rgba(120,170,255,.10);
+  --red:#ff747e;--redbg:rgba(255,116,126,.10);
+  --cyan:#68e6f2;--violet:#b5a1ff;
+  --shadow:0 18px 55px rgba(0,0,0,.34)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);background:
+ radial-gradient(900px 620px at 7% -9%,rgba(120,170,255,.10),transparent 55%),
+ radial-gradient(780px 560px at 98% 0%,rgba(181,161,255,.07),transparent 50%),
+ linear-gradient(180deg,var(--bg),var(--bg2));
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+a{color:inherit}button{font:inherit}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:18px 15px;border-right:1px solid var(--line2);background:rgba(7,10,14,.88);backdrop-filter:blur(18px);z-index:30}
+.brand{display:flex;gap:11px;align-items:center;padding:7px 8px 18px}
+.logo{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:950;background:linear-gradient(145deg,#213044,#0e1621);border:1px solid #37495b}
+.brand b{display:block;font-size:14px}.brand small{display:block;color:var(--muted2);font-size:11px;margin-top:1px}
+.navtitle{padding:15px 10px 7px;color:#5f6e7e;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.nav a{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:10px;font-size:12px;margin:2px 0}
+.nav a:hover,.nav a.active{background:#121a23;color:#fff}.bullet{width:7px;height:7px;border-radius:50%;background:#3a4a5c}
+.nav a.active .bullet{background:var(--blue);box-shadow:0 0 14px rgba(120,170,255,.65)}
+.sidebox{margin-top:15px;border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:13px}
+.sidebox .k{font-size:10px;color:var(--muted2);font-weight:900;text-transform:uppercase;letter-spacing:.10em}
+.sidebox .v{font-size:14px;font-weight:900;margin-top:4px}.sidebox .s{font-size:11px;color:var(--muted);margin-top:4px}
+.main{min-width:0}
+.topbar{height:64px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--line2);background:rgba(7,10,14,.80);backdrop-filter:blur(18px)}
+.live{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(244,199,91,.23);background:var(--amberbg);color:#ffe9ad;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.live i{display:block;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:#10171f;color:#ccd6df;border-radius:10px;padding:8px 10px;font-size:11px;cursor:pointer}.btn:hover{background:#16202a}
+.content{max-width:1260px;margin:0 auto;padding:28px 30px 80px}
+.hero{border:1px solid var(--line);border-radius:24px;padding:27px;background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.004)),var(--panel);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-140px;top:-150px;width:410px;height:410px;border-radius:50%;background:radial-gradient(circle,rgba(120,170,255,.16),transparent 63%);pointer-events:none}
+.eyebrow{font-size:11px;color:var(--cyan);font-weight:900;text-transform:uppercase;letter-spacing:.14em;position:relative;z-index:1}
+h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px 0 12px;position:relative;z-index:1}
+.hero>p{max-width:840px;margin:0;color:var(--muted);font-size:14px;position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:14px;margin-top:22px;position:relative;z-index:1}
+.current{border:1px solid rgba(244,199,91,.28);background:var(--amberbg);border-radius:17px;padding:17px}
+.current .k{font-size:10px;color:#ffe2a4;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.current h2{font-size:20px;margin:5px 0 7px}.current p{font-size:12px;color:#d9cba7;margin:0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{border:1px solid var(--line2);background:rgba(7,11,15,.45);border-radius:14px;padding:13px}
+.stat .k{font-size:10px;color:var(--muted2);font-weight:850;text-transform:uppercase;letter-spacing:.09em}.stat .v{font-size:14px;font-weight:900;margin-top:5px}
+.section{margin-top:30px}.sh{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:13px}.sh h2{font-size:21px;margin:0}.sh p{margin:3px 0 0;color:var(--muted2);font-size:11px}
+.masterline{display:grid;grid-template-columns:repeat(9,1fr);gap:8px;margin:15px 0 3px}
+.mile{border:1px solid var(--line);background:var(--panel);border-radius:13px;padding:10px 8px;text-align:center;min-width:0}
+.mile b{display:block;font-size:12px}.mile small{display:block;color:var(--muted2);font-size:9px;margin-top:3px;line-height:1.25}
+.mile.done{border-color:rgba(74,222,128,.24);background:var(--greenbg)}.mile.now{border-color:rgba(244,199,91,.30);background:var(--amberbg)}.mile.future{border-color:rgba(120,170,255,.18)}.mile.locked{border-color:rgba(255,116,126,.20);background:var(--redbg)}
+.phase{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:18px;margin-bottom:15px}
+.phase-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:13px}
+.phase-title{display:flex;gap:12px;align-items:flex-start}.phase-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#0b1117;border:1px solid var(--line);font-size:13px;font-weight:950;flex:0 0 auto}
+.phase h3{margin:0;font-size:18px}.phase-desc{font-size:12px;color:var(--muted);margin-top:4px;max-width:850px}
+.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+.p-done{color:#baf5ce;background:var(--greenbg);border-color:rgba(74,222,128,.24)}.p-now{color:#ffe5aa;background:var(--amberbg);border-color:rgba(244,199,91,.24)}.p-next{color:#c8ddff;background:var(--bluebg);border-color:rgba(120,170,255,.24)}.p-lock{color:#ffc0c6;background:var(--redbg);border-color:rgba(255,116,126,.24)}
+.steps{display:grid;gap:8px}.step{display:grid;grid-template-columns:42px minmax(0,1fr) 135px;gap:13px;align-items:start;border-top:1px solid var(--line2);padding-top:12px;margin-top:2px}
+.step:first-child{border-top:0;padding-top:0}.n{width:34px;height:34px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:900;color:#b8c4d0;background:#0b1117}
+.step.ok .n{background:var(--greenbg);border-color:rgba(74,222,128,.25);color:#baf5ce}.step.active .n{background:var(--amberbg);border-color:rgba(244,199,91,.28);color:#ffe5aa}.step.wait .n{background:var(--bluebg);border-color:rgba(120,170,255,.20);color:#c8ddff}.step.stop .n{background:var(--redbg);border-color:rgba(255,116,126,.23);color:#ffc0c6}
+.step h4{margin:0;font-size:14px}.plain{font-size:12px;color:#d8e0e8;margin-top:4px}.details{display:grid;gap:6px;margin-top:9px}.detail{display:grid;grid-template-columns:135px minmax(0,1fr);gap:10px;font-size:11px;padding-top:6px;border-top:1px dashed #202b36}.detail:first-child{border-top:0;padding-top:0}.detail .k{color:var(--muted2);font-weight:800}.detail .v{color:var(--muted)}
+.ss{text-align:right}.ss small{display:block;color:var(--muted2);font-size:9px;margin-top:5px}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.lad{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:14px}.lad b{font-size:14px}.lad p{font-size:11px;color:var(--muted);margin:6px 0 0}.arrow{color:var(--muted2);font-size:10px;margin-top:8px}
+.checklist{columns:2;column-gap:25px;margin:0;padding-left:20px}.checklist li{break-inside:avoid;font-size:12px;color:#d4dde6;margin:6px 0}
+.tech{border:1px solid var(--line);background:var(--panel);border-radius:17px;padding:16px}.kv{display:grid;grid-template-columns:250px minmax(0,1fr);gap:13px;padding:9px 0;border-bottom:1px solid var(--line2)}.kv:last-child{border-bottom:0}.kv .k{font-size:11px;color:var(--muted)}.kv .v{font-size:11px;font-weight:750}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all;color:#dbe8f4}
+.note{margin-top:14px;border:1px solid rgba(120,170,255,.20);background:var(--bluebg);border-radius:15px;padding:14px;font-size:12px;color:#cfdef4}
+.warn{margin-top:14px;border:1px solid rgba(255,116,126,.20);background:var(--redbg);border-radius:15px;padding:14px;font-size:12px;color:#f4c6ca}
+.footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;gap:14px;color:var(--muted2);font-size:10px}
+.mobile{display:none}
+@media(max-width:1080px){.layout{display:block}.sidebar{display:none}.topbar{padding:0 18px}.content{padding:20px 18px 60px}.hero-grid{grid-template-columns:1fr}.mobile{display:flex;gap:7px;overflow:auto;padding-bottom:14px}.mobile a{white-space:nowrap;text-decoration:none;border:1px solid var(--line);background:var(--panel);padding:7px 10px;border-radius:999px;color:var(--muted);font-size:11px}.masterline{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.stats{grid-template-columns:1fr}.step{grid-template-columns:36px minmax(0,1fr)}.ss{grid-column:2;text-align:left}.detail{grid-template-columns:1fr;gap:2px}.ladder{grid-template-columns:1fr}.checklist{columns:1}.kv{grid-template-columns:1fr;gap:3px}.actions .btn:nth-child(2){display:none}}
+@media print{.sidebar,.topbar,.mobile{display:none!important}.layout{display:block}body{background:#fff;color:#111}.content{max-width:none;padding:0}.hero,.phase,.lad,.tech,.stat,.current,.mile{background:#fff;color:#111;box-shadow:none;border-color:#bbb}.hero>p,.phase-desc,.plain,.detail .v,.kv .k,.lad p{color:#555}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">S</div><div><b>SynSaveinstance Next</b><small>Master Roadmap M0–M8</small></div></div>
+ <div class="navtitle">Milestones</div>
+ <nav class="nav">
+  <a class="active" href="#top"><span class="bullet"></span>Обзор</a>
+  <a href="#m0"><span class="bullet"></span>M0 — Audit</a>
+  <a href="#m1"><span class="bullet"></span>M1 — Store</a>
+  <a href="#m2"><span class="bullet"></span>M2 — Observation</a>
+  <a href="#m3"><span class="bullet"></span>M3 — Vertical Slice</a>
+  <a href="#m4"><span class="bullet"></span>M4 — Appearance</a>
+  <a href="#m5"><span class="bullet"></span>M5 — Terrain</a>
+  <a href="#m6"><span class="bullet"></span>M6 — UI + Small Live</a>
+  <a href="#m7"><span class="bullet"></span>M7 — Real Map</a>
+  <a href="#m8"><span class="bullet"></span>M8 — Full Map / Release</a>
+  <a href="#gates"><span class="bullet"></span>Validation ladder</a>
+  <a href="#q01"><span class="bullet"></span>Q01 reviews</a>
+  <a href="#tech"><span class="bullet"></span>Технические данные</a>
+ </nav>
+ <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Overlay закрыт</div><div class="s">Overlay закрыт; следующий gate — Geometry / Image / Material integration.</div></div>
+ <div class="sidebox"><div class="k">До финального релиза</div><div class="v">M5 → M6 → M7 → M8</div><div class="s">Terrain, UI/small-live, реальные участки карты, затем full-map release.</div></div>
+</aside>
+
+<main class="main">
+<header class="topbar"><div class="live"><i></i>Полная карта проекта</div><div class="actions"><button class="btn" onclick="window.print()">Печать / PDF</button><button class="btn" onclick="copyStatus()">Скопировать статус</button></div></header>
+<div class="content">
+<nav class="mobile"><a href="#top">Обзор</a><a href="#m4">M4</a><a href="#m5">M5</a><a href="#m6">M6</a><a href="#m7">M7</a><a href="#m8">M8</a></nav>
+
+<section class="hero" id="top">
+ <div class="eyebrow">Canonical project plan · M0 → M8</div>
+ <h1>Полная дорожная карта SynSaveinstance Next</h1>
+ <p>
+  Это уже не карта «до M5». Здесь отражён исходный проектный plan целиком: от архитектурного аудита до Terrain,
+  пользовательского workflow, небольших live-сцен, проверки на реальных участках карты и финального full-map release.
+  M8 — конец текущего утверждённого master-plan, а не утверждение, что продукт никогда больше не будет развиваться.
+ </p>
+ <div class="hero-grid">
+  <div class="current">
+   <div class="k">Где мы сейчас</div>
+   <h2>M4 Appearance / Assets</h2>
+   <p>
+    M1–M3 уже закрыты. В M4 закрыты A06, M4-D01 и Production Capture/Binding.
+    Paired Visual M1 / m4-index и Desktop M4 Overlay / Canonical Decoder уже закрыты как CLOSED/PASS_EXTERNAL. Следующий gate — Geometry / Image / Material production integration.
+   </p>
+  </div>
+  <div class="stats">
+   <div class="stat"><div class="k">M0–M3</div><div class="v" style="color:#baf5ce">Завершены</div></div>
+   <div class="stat"><div class="k">M4</div><div class="v" style="color:#ffe5aa">Активен</div></div>
+   <div class="stat"><div class="k">M5–M8</div><div class="v" style="color:#c8ddff">Впереди</div></div>
+   <div class="stat"><div class="k">Play authorization</div><div class="v" style="color:#ffc0c6">NONE</div></div>
+  </div>
+ </div>
+ <div class="masterline">
+  <div class="mile done"><b>M0</b><small>Audit & Architecture</small></div>
+  <div class="mile done"><b>M1</b><small>Verified Store</small></div>
+  <div class="mile done"><b>M2</b><small>Observation</small></div>
+  <div class="mile done"><b>M3</b><small>Vertical Slice</small></div>
+  <div class="mile now"><b>M4</b><small>Appearance & Assets</small></div>
+  <div class="mile future"><b>M5</b><small>Terrain & Environment</small></div>
+  <div class="mile future"><b>M6</b><small>UI + Small Live</small></div>
+  <div class="mile future"><b>M7</b><small>Targeted Real Map</small></div>
+  <div class="mile future"><b>M8</b><small>Full Map / Release</small></div>
+ </div>
+</section>
+
+<section class="section">
+<div class="sh"><div><h2>Milestones полностью</h2><p>Что происходит на каждом большом этапе и что считается его реальным завершением.</p></div></div>
+
+<div class="phase" id="m0">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M0</div><div><h3>Audit и архитектурное решение</h3><div class="phase-desc">Разобрать legacy/RC10, факты, gaps и спроектировать новую систему до написания production-кода.</div></div></div><span class="pill p-done">Завершён</span></div>
+ <div class="steps">
+  <div class="step ok"><div class="n">1</div><div><h4>Инвентаризация исходников и evidence</h4><div class="plain">Разобрать handoff, Capture, Desktop, старые результаты и определить, чему можно доверять, а чему нет.</div><div class="details"><div class="detail"><div class="k">Зачем</div><div class="v">Чтобы Next не повторял архитектурные ошибки старой системы и не принимал historical claims за новые доказательства.</div></div></div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">2</div><div><h4>Architecture v0.1 + Requirements Traceability Matrix</h4><div class="plain">Определить owners модулей, trust boundaries, failure model, schema direction и конечный тестовый план.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">3</div><div><h4>Development gate</h4><div class="plain">Только после согласованной архитектуры разрешить clean implementation Next.</div></div><div class="ss"><span class="pill p-done">Пройден</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m1">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M1</div><div><h3>Contract + Verified Store</h3><div class="phase-desc">Сделать такое хранилище, где partial/corrupt данные нельзя случайно принять за настоящий committed snapshot.</div></div></div><span class="pill p-done">CLOSED/PASS</span></div>
+ <div class="steps">
+  <div class="step ok"><div class="n">1</div><div><h4>Версионированный contract и cross-language fixtures</h4><div class="plain">Luau и Python должны одинаково понимать identity, receipts, manifests, commits и ошибки.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">2</div><div><h4>Transactional Store</h4><div class="plain">Blob → readback/hash → receipt → manifest → commit. Никакого «файл есть — значит сохранён».</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">3</div><div><h4>Recovery и crash/fault matrix</h4><div class="plain">После обрыва восстанавливается только последний полностью проверенный prefix.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">4</div><div><h4>Independent Q01 / release package</h4><div class="plain">Milestone закрыт только после отдельной архитектурной, correctness и failure-проверки.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m2">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M2</div><div><h3>Indexed Observation / Retention</h3><div class="phase-desc">Следить за живой картой без постоянных полных rescans и без потери lifetime/revision semantics.</div></div></div><span class="pill p-done">CLOSED/PASS</span></div>
+ <div class="steps">
+  <div class="step ok"><div class="n">1</div><div><h4>Workspace index + subscribe-before-scan</h4><div class="plain">Добавления, удаления, reparent и изменения не должны теряться во время baseline scan.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">2</div><div><h4>Lifetime / dynamic proof / UNKNOWN semantics</h4><div class="plain">Move→return не делает объект снова «статичным», а одинаковый path не означает ту же lifetime.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">3</div><div><h4>Retention + scheduler + memory/failure gates</h4><div class="plain">Immutable revisions, bounded work, cancellation и отсутствие clone amplification.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m3">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M3</div><div><h3>Minimal Vertical Slice</h3><div class="phase-desc">Первый маленький путь целиком: Roblox Capture → verified history → Desktop canonical scene → GLB/target adapters.</div></div></div><span class="pill p-done">CLOSED/PASS · FROZEN</span></div>
+ <div class="steps">
+  <div class="step ok"><div class="n">1</div><div><h4>Placement и canonical scene</h4><div class="plain">Те же node IDs, parents, transforms и sizes проходят через всю цепочку.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">2</div><div><h4>Desktop + GLB / target adapters</h4><div class="plain">Минимальная primitive scene реконструируется независимо от Capture.</div></div><div class="ss"><span class="pill p-done">Готово</span></div></div>
+  <div class="step ok"><div class="n">3</div><div><h4>Freeze M3</h4><div class="plain">M3 становится единственным placement authority для следующих milestones.</div></div><div class="ss"><span class="pill p-done">Byte-frozen</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m4">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Mesh, texture, material, SurfaceAppearance, CSG policy, exact content identity и production визуальный pipeline.</div></div></div><span class="pill p-now">Сейчас здесь</span></div>
+ <div class="steps">
+  <div class="step ok"><div class="n">1</div><div><h4>A01–A05 + A07 official API capability work</h4><div class="plain">Проверены официальные controlled routes для visual/external content acquisition.</div></div><div class="ss"><span class="pill p-done">Closed</span></div></div>
+  <div class="step ok"><div class="n">2</div><div><h4>A06 + D06/D07 mesh representation diagnostics</h4><div class="plain">Разобрались с реальными Roblox-derived normals; один controlled D07 Play различил surviving numerical models; scoped oracle принят.</div></div><div class="ss"><span class="pill p-done">PASS_SCOPED</span></div></div>
+  <div class="step ok"><div class="n">3</div><div><h4>M4-D01 contract / M4G2</h4><div class="plain">Зафиксированы exact geometry/content/lifetime rules, no hidden repair, no normalization и frozen placement binding.</div></div><div class="ss"><span class="pill p-done">PASS_EXTERNAL</span></div></div>
+  <div class="step ok"><div class="n">4</div><div><h4>Production Capture / Binding</h4><div class="plain">Lifetime/revision/generation fences, ABA, cancellation и stale-result rejection.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
+  <div class="step ok"><div class="n">5</div><div><h4>Paired Visual M1 / m4-index</h4><div class="plain">Visual campaign и immutable index уже прошли independent review. Осталось сохранить PASS receipt в GitHub.</div><div class="details"><div class="detail"><div class="k">Текущий review</div><div class="v">PASS_EXTERNAL; следующий action — additive receipt + exact remote HEAD.</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
+  <div class="step ok"><div class="n">6</div><div><h4>Desktop M4 Overlay / Canonical Decoder</h4><div class="plain">Соединить frozen M3 placement и accepted appearance, не разрешая M4 менять hierarchy/transforms/Size.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
+  <div class="step active"><div class="n">7</div><div><h4>Geometry / Image / Material production integration</h4><div class="plain">Собрать Mesh, textures, SurfaceAppearance, materials и provenance в единый production pipeline.</div></div><div class="ss"><span class="pill p-now">Следующий</span></div></div>
+  <div class="step wait"><div class="n">8</div><div><h4>M4 GLB exporter</h4><div class="plain">Deterministic export с exact winding/seams/UV/normals/material semantics.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">9</div><div><h4>Fault / resource / cleanup gates</h4><div class="plain">Corruption, stale data, partial acquisitions, memory limits, cleanup и recovery.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">10</div><div><h4>Production E2E disabled pre-run package</h4><div class="plain">Точный runner/config/map/hashes/abort rules, но Play ещё выключен.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">11</div><div><h4>Independent pre-run review + receipt</h4><div class="plain">Проверить exact package и только после PASS попросить отдельное разрешение на runtime.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step stop"><div class="n">12</div><div><h4>ONE CONTROLLED PRODUCTION PLAY</h4><div class="plain">Ровно один Play после твоего явного разрешения. Automatic retry запрещён.</div></div><div class="ss"><span class="pill p-lock">Locked</span></div></div>
+  <div class="step wait"><div class="n">13</div><div><h4>Desktop / canonical / GLB readback</h4><div class="plain">По реальному runtime evidence определить, прошёл ли Production E2E.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">14</div><div><h4>Visual acceptance</h4><div class="plain">Отдельно проверить, что итог действительно выглядит правильно, а не просто технически экспортируется.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">15</div><div><h4>M4 Q01 / Final Feature Matrix / frozen release</h4><div class="plain">Зафиксировать full/scoped/unsupported/UNKNOWN, выполнить final review и создать frozen M4 baseline.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+  <div class="step wait"><div class="n">16</div><div><h4>M4 → M5 handoff</h4><div class="plain">После formal M4 closure передать exact baseline в отдельный новый Codex project для M5.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m5">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M5</div><div><h3>Terrain / Environment E2E</h3><div class="phase-desc">M5 — не конец проекта. Здесь начинается отдельный большой блок Terrain, воды и environment.</div></div></div><span class="pill p-next">NOT_STARTED</span></div>
+ <div class="steps">
+  <div class="step wait"><div class="n">1</div><div><h4>Новый Codex project + M4 baseline import</h4><div class="plain">M5 стартует только после formal M4 freeze/handoff, без переписывания M1–M4 history.</div></div><div class="ss"><span class="pill p-next">Future</span></div></div>
+  <div class="step wait"><div class="n">2</div><div><h4>Terrain contract / tile capture</h4><div class="plain">Хранить bounded 3D tiles: origin, resolution, dimensions, occupancy, materials, water и UNKNOWN mask.</div></div><div class="ss"><span class="pill p-next">P30</span></div></div>
+  <div class="step wait"><div class="n">3</div><div><h4>Desktop Terrain reader + mesher</h4><div class="plain">Desktop должен читать ту же версию tile contract и строить terrain geometry без смешения missing, air и UNKNOWN.</div></div><div class="ss"><span class="pill p-next">Reader/Mesher</span></div></div>
+  <div class="step wait"><div class="n">4</div><div><h4>Seams / halo / border ownership</h4><div class="plain">Соседние tiles должны стыковаться детерминированно; несовместимая граница должна дать explicit conflict.</div></div><div class="ss"><span class="pill p-next">P31</span></div></div>
+  <div class="step wait"><div class="n">5</div><div><h4>Water policy</h4><div class="plain">Вода — отдельная geometry/material policy, а не случайный материал обычного terrain.</div></div><div class="ss"><span class="pill p-next">Future</span></div></div>
+  <div class="step wait"><div class="n">6</div><div><h4>Environment reconstruction</h4><div class="plain">Active sky/effects/source values сохраняются; inactive environment library не применяется автоматически.</div></div><div class="ss"><span class="pill p-next">P41</span></div></div>
+  <div class="step wait"><div class="n">7</div><div><h4>Controlled C12 Terrain run</h4><div class="plain">Малый authored Terrain с соседними tiles и водой проходит Capture → Desktop reader → mesher.</div></div><div class="ss"><span class="pill p-next">C12</span></div></div>
+  <div class="step wait"><div class="n">8</div><div><h4>Blender / UE Terrain + environment acceptance</h4><div class="plain">Target materials/environment проверяются отдельно; procedural grass/shading могут остаться explicit approximate/unsupported.</div></div><div class="ss"><span class="pill p-next">Targets</span></div></div>
+  <div class="step wait"><div class="n">9</div><div><h4>M5 Q01 + frozen handoff</h4><div class="plain">Architecture/correctness/failure/perf/memory reviews и milestone report перед переходом в M6.</div></div><div class="ss"><span class="pill p-next">Q01</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m6">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M6</div><div><h3>Lifecycle / UI + Small Live Acceptance</h3><div class="phase-desc">Сделать систему удобной и устойчивой для пользователя, затем проверить всю цепочку на небольшой живой сцене.</div></div></div><span class="pill p-next">NOT_STARTED</span></div>
+ <div class="steps">
+  <div class="step wait"><div class="n">1</div><div><h4>Reattachable HUD / StatusBus / command IDs</h4><div class="plain">HUD можно уничтожить/пересоздать, а core не должен потерять состояние или выполнить команду дважды.</div></div><div class="ss"><span class="pill p-next">P27/C10</span></div></div>
+  <div class="step wait"><div class="n">2</div><div><h4>Desktop workflow / GUI</h4><div class="plain">Поверх уже проверенного CLI/domain pipeline появляется удобный Desktop workflow без monkeypatch-цепочки legacy.</div></div><div class="ss"><span class="pill p-next">Future</span></div></div>
+  <div class="step wait"><div class="n">3</div><div><h4>Diagnostics + recovery instructions</h4><div class="plain">Normal logs bounded, debug logs ротируются; пользователь видит pending native operation, recoverable errors и понятные действия.</div></div><div class="ss"><span class="pill p-next">Future</span></div></div>
+  <div class="step wait"><div class="n">4</div><div><h4>S01 — small live scene</h4><div class="plain">Компактная сцена с primitives, hierarchy, animated/replaced object, Mesh/FileMesh, CSG, Decal/Texture, SurfaceAppearance, MaterialVariant, studs/truss, environment и двумя Terrain tiles с водой.</div><div class="details"><div class="detail"><div class="k">Цепочка</div><div class="v">Один Capture → verified bundle → canonical scene → Blender + Unreal.</div></div><div class="detail"><div class="k">Сравнение</div><div class="v">IDs/counts/bounds/materials, UV/normals и 6 фиксированных camera views.</div></div></div></div><div class="ss"><span class="pill p-next">S01</span></div></div>
+  <div class="step wait"><div class="n">5</div><div><h4>S02 — small live StreamingEnabled</h4><div class="plain">Та же сцена со StreamingEnabled=true, bounded 12-region request plan, interruption/resume и намеренным mode mismatch.</div></div><div class="ss"><span class="pill p-next">S02</span></div></div>
+  <div class="step wait"><div class="n">6</div><div><h4>Раздельные acceptance reports</h4><div class="plain">Capture, Desktop, Blender и UE получают отдельные результаты. Один success не скрывает failed target или partial coverage.</div></div><div class="ss"><span class="pill p-next">P47</span></div></div>
+  <div class="step wait"><div class="n">7</div><div><h4>M6 Q01</h4><div class="plain">После small-live проверок — architecture/correctness/failure/performance/memory review.</div></div><div class="ss"><span class="pill p-next">Q01</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m7">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M7</div><div><h3>Targeted Real-Map Validation</h3><div class="phase-desc">До полной карты — несколько ограниченных и заранее определённых проб на настоящем PlaceId.</div></div></div><span class="pill p-next">NOT_STARTED</span></div>
+ <div class="steps">
+  <div class="step wait"><div class="n">1</div><div><h4>Precondition: P/C/S gates closed</h4><div class="plain">Нельзя прыгать сразу на реальную большую карту. Сначала должны пройти pure, controlled и small-live уровни.</div></div><div class="ss"><span class="pill p-next">Gate</span></div></div>
+  <div class="step wait"><div class="n">2</div><div><h4>R01 — динамический контент</h4><div class="plain">Ограниченная область с dynamic content типа RenderedEggs; generic lifetime/motion без name-based hardcode.</div><div class="details"><div class="detail"><div class="k">Бюджет</div><div class="v">До 2 минут, один bounded observation plan.</div></div></div></div><div class="ss"><span class="pill p-next">R01</span></div></div>
+  <div class="step wait"><div class="n">3</div><div><h4>R02 — дальняя/высотная область</h4><div class="plain">Проверить precision и coverage gaps около известного far-origin Y≈40316.879.</div><div class="details"><div class="detail"><div class="k">Бюджет</div><div class="v">До 2 минут, finite declared bounds.</div></div></div></div><div class="ss"><span class="pill p-next">R02</span></div></div>
+  <div class="step wait"><div class="n">4</div><div><h4>R03 — Mesh / Appearance / Terrain targets</h4><div class="plain">Заранее выбранный небольшой набор реальных visual/Terrain targets; permission failures записываются честно, без обхода.</div><div class="details"><div class="detail"><div class="k">Лимит</div><div class="v">≤10 asset references и ≤4 Terrain tiles, до 3 минут.</div></div></div></div><div class="ss"><span class="pill p-next">R03</span></div></div>
+  <div class="step wait"><div class="n">5</div><div><h4>Gap analysis + budgets for F01</h4><div class="plain">Объяснить все gaps и на измерениях определить work/RAM/disk/time budgets для full-map run.</div></div><div class="ss"><span class="pill p-next">Exit criterion</span></div></div>
+  <div class="step wait"><div class="n">6</div><div><h4>M7 Q01</h4><div class="plain">Ни одного violated invariant; unresolved остаются explicit, а не маскируются как успех.</div></div><div class="ss"><span class="pill p-next">Q01</span></div></div>
+ </div>
+</div>
+
+<div class="phase" id="m8">
+ <div class="phase-head"><div class="phase-title"><div class="phase-icon">M8</div><div><h3>Full-Map Acceptance / Reproducible Release</h3><div class="phase-desc">Финальный milestone текущего канонического master-plan: настоящая большая карта и воспроизводимый release.</div></div></div><span class="pill p-next">NOT_STARTED</span></div>
+ <div class="steps">
+  <div class="step wait"><div class="n">1</div><div><h4>F01 preflight</h4><div class="plain">До запуска фиксируем finite domain/discovery cap, measured work/RAM/disk budgets, stop conditions и quality thresholds.</div></div><div class="ss"><span class="pill p-next">Gate</span></div></div>
+  <div class="step stop"><div class="n">2</div><div><h4>F01 — один gated full-map acceptance run</h4><div class="plain">Full-map запуск возможен только после P/C/S/R и отдельного review gate. Не «просто запускаем всю карту для проверки».</div></div><div class="ss"><span class="pill p-lock">Future runtime</span></div></div>
+  <div class="step wait"><div class="n">3</div><div><h4>Coverage / unresolved / asset failure report</h4><div class="plain">Показать, что реально наблюдалось, что осталось UNKNOWN/unavailable и какие assets не удалось получить.</div></div><div class="ss"><span class="pill p-next">Report</span></div></div>
+  <div class="step wait"><div class="n">4</div><div><h4>Desktop conversion report</h4><div class="plain">Отдельно проверить canonical scene и conversion. Capture commit сам по себе Desktop acceptance не закрывает.</div></div><div class="ss"><span class="pill p-next">Desktop</span></div></div>
+  <div class="step wait"><div class="n">5</div><div><h4>Blender acceptance report</h4><div class="plain">Проверить отдельный target adapter и визуальные результаты Blender.</div></div><div class="ss"><span class="pill p-next">Blender</span></div></div>
+  <div class="step wait"><div class="n">6</div><div><h4>Unreal acceptance report</h4><div class="plain">UE проходит собственную независимую проверку; failed UE нельзя спрятать за успешным Capture/GLB.</div></div><div class="ss"><span class="pill p-next">Unreal</span></div></div>
+  <div class="step wait"><div class="n">7</div><div><h4>Full-map visual comparisons</h4><div class="plain">Сравнить agreed views/quality metrics. Client visibility и permission limits остаются explicit UNKNOWN/unavailable.</div></div><div class="ss"><span class="pill p-next">Visual</span></div></div>
+  <div class="step wait"><div class="n">8</div><div><h4>Acceptance decision</h4><div class="plain">M8 нельзя закрыть как full acceptance при material unresolved gaps. Допустим честный partial scope, если thresholds это разрешают.</div></div><div class="ss"><span class="pill p-next">Decision</span></div></div>
+  <div class="step wait"><div class="n">9</div><div><h4>Reproducible source release</h4><div class="plain">Source ZIP, hashes, manifests, exact commit/build, results и recovery/resume notes должны воспроизводимо связываться между собой.</div></div><div class="ss"><span class="pill p-next">Release</span></div></div>
+  <div class="step wait"><div class="n">10</div><div><h4>Final M8 Q01</h4><div class="plain">Последняя architecture/correctness/failure/perf/memory/logging/testability/refactor/optimization проверка текущего master-plan.</div></div><div class="ss"><span class="pill p-next">Q01</span></div></div>
+ </div>
+ <div class="note"><b>После M8:</b> текущий канонический план не определяет следующий номер milestone. Поэтому я не буду придумывать M9/M10 без нового согласованного roadmap. M8 — конец нынешнего плана релиза, а не обещание, что развитие продукта навсегда закончится.</div>
+</div>
+</section>
+
+<section class="section" id="gates">
+ <div class="sh"><div><h2>Лестница проверки проекта</h2><p>Почему до full-map ещё несколько совершенно разных уровней.</p></div></div>
+ <div class="ladder">
+  <div class="lad"><b>P — Pure</b><p>Детерминированные offline тесты: contracts, corruption, identity, geometry, Terrain, performance fixtures.</p><div class="arrow">50 test groups</div></div>
+  <div class="lad"><b>C — Controlled</b><p>Малые управляемые engine scenarios с заранее известным ожидаемым результатом.</p><div class="arrow">13 scenarios</div></div>
+  <div class="lad"><b>S — Small Live</b><p>Полная небольшая живая сцена и streaming-вариант через Capture → Desktop → Blender/UE.</p><div class="arrow">S01 / S02</div></div>
+  <div class="lad"><b>R — Real Map</b><p>Три коротких bounded probes на настоящей карте для динамики, precision и assets/Terrain.</p><div class="arrow">R01–R03</div></div>
+  <div class="lad"><b>F — Full Map</b><p>Один финальный gated full-map acceptance run с заранее измеренными бюджетами и thresholds.</p><div class="arrow">F01</div></div>
+ </div>
+</section>
+
+<section class="section" id="q01">
+ <div class="sh"><div><h2>Q01 — обязательный review каждого крупного milestone</h2><p>Milestone не считается закрытым только потому, что код работает на happy path.</p></div></div>
+ <div class="tech">
+  <ol class="checklist">
+   <li>Architecture Review — owners, API, dependencies, no hidden global state.</li>
+   <li>Correctness Review — invariants/RTM, UNKNOWN сохраняется.</li>
+   <li>Failure-Mode Review — crash, cancel, corruption, late callbacks, limits.</li>
+   <li>Performance + Memory Review — measured baseline и bottlenecks.</li>
+   <li>Duplication / Dead-Code Review — убрать дубли и obsolete branches.</li>
+   <li>Logging Review — bounded volume, redaction, I/O overhead.</li>
+   <li>Testability Review — независимые oracles, deterministic ports/fixtures.</li>
+   <li>Refactoring Pass — упростить найденные нарушения.</li>
+   <li>Optimization Pass — только измеренные bottlenecks.</li>
+   <li>Final milestone report — что доказано, что OPEN, exact source/results hashes.</li>
+  </ol>
+ </div>
+</section>
+
+
+<section class="section" id="tech">
+ <div class="sh"><div><h2>Текущие статусы проекта</h2><p>Публичная версия без приватных commit/hash identities.</p></div></div>
+ <div class="tech">
+  <div class="kv"><div class="k">M0</div><div class="v">Завершён</div></div>
+  <div class="kv"><div class="k">M1</div><div class="v">CLOSED/PASS</div></div>
+  <div class="kv"><div class="k">M2</div><div class="v">CLOSED/PASS</div></div>
+  <div class="kv"><div class="k">M3</div><div class="v">CLOSED/PASS · byte-frozen</div></div>
+  <div class="kv"><div class="k">M4</div><div class="v">OPEN</div></div>
+  <div class="kv"><div class="k">M4-D01</div><div class="v">CLOSED/PASS_EXTERNAL</div></div>
+  <div class="kv"><div class="k">Capture/Binding</div><div class="v">CLOSED/PASS_EXTERNAL</div></div>
+  <div class="kv"><div class="k">Paired Visual M1 / m4-index</div><div class="v">CLOSED/PASS_EXTERNAL</div></div>
+  <div class="kv"><div class="k">Desktop M4 Overlay</div><div class="v">CLOSED/PASS_EXTERNAL</div></div>
+  <div class="kv"><div class="k">Текущий gate</div><div class="v">Geometry / Image / Material Production Integration</div></div>
+  <div class="kv"><div class="k">M5</div><div class="v">NOT_STARTED — Terrain / Environment</div></div>
+  <div class="kv"><div class="k">M6</div><div class="v">NOT_STARTED — Lifecycle / UI + Small Live</div></div>
+  <div class="kv"><div class="k">M7</div><div class="v">NOT_STARTED — Targeted Real Map</div></div>
+  <div class="kv"><div class="k">M8</div><div class="v">NOT_STARTED — Full Map / Release</div></div>
+  <div class="kv"><div class="k">Play authorization</div><div class="v" style="color:#ffc0c6">NONE</div></div>
+ </div>
+ <div class="warn"><b>Важно:</b> full-map acceptance возможен только после M8/F01. UNKNOWN/unavailable ограничения не маскируются под «100% сохранение».</div>
+</section>
+
+<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: M4 Desktop Overlay CLOSED/PASS_EXTERNAL → Geometry/Image/Material integration</span></footer>
+</div>
+</main>
+</div>
+
+<script>
+function copyStatus(){
+const t=`SynSaveinstance Next — Master Roadmap
+M0: complete
+M1: CLOSED/PASS
+M2: CLOSED/PASS
+M3: CLOSED/PASS + byte-frozen
+M4: OPEN
+  M4-D01: CLOSED/PASS_EXTERNAL
+  Capture/Binding: CLOSED/PASS_EXTERNAL
+  Visual M1/index: PASS_EXTERNAL obtained; receipt pending
+  Next: Desktop M4 Overlay
+M5: NOT_STARTED — Terrain/environment E2E
+M6: NOT_STARTED — lifecycle/UI + small live acceptance
+M7: NOT_STARTED — targeted real-map R01–R03
+M8: NOT_STARTED — full-map F01 + reproducible release
+Play authorization: NONE`;
+navigator.clipboard?.writeText(t).then(()=>alert("Текущий статус скопирован."));
+}
+</script>
+</body>
+</html>
