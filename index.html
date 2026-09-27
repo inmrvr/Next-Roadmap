@@ -49,9 +49,9 @@ main{min-width:0}
 h1{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-.04em;margin:8px 0 11px}
 .hero>p{margin:0;color:var(--muted);font-size:14px;max-width:830px}
 .focus{margin-top:22px;display:grid;grid-template-columns:1.15fr .85fr;gap:13px}
-.focus-main{border:1px solid rgba(255,116,126,.28);background:var(--blockbg);border-radius:17px;padding:17px}
-.focus-main .label{font-size:10px;color:#ffc2c7;text-transform:uppercase;letter-spacing:.11em;font-weight:900}
-.focus-main h2{font-size:20px;margin:5px 0 7px}.focus-main p{font-size:12px;color:#e2bfc2;margin:0}
+.focus-main{border:1px solid rgba(245,200,91,.28);background:var(--nowbg);border-radius:17px;padding:17px}
+.focus-main .label{font-size:10px;color:#ffe6aa;text-transform:uppercase;letter-spacing:.11em;font-weight:900}
+.focus-main h2{font-size:20px;margin:5px 0 7px}.focus-main p{font-size:12px;color:#dfd2ad;margin:0}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fact{border:1px solid var(--line2);background:#0b1117;border-radius:14px;padding:13px}.fact .k{font-size:10px;color:var(--muted2);font-weight:850;text-transform:uppercase;letter-spacing:.09em}.fact .v{font-size:13px;font-weight:900;margin-top:5px}
 .rail{display:grid;grid-template-columns:repeat(9,1fr);gap:7px;margin-top:18px}
@@ -76,8 +76,8 @@ summary h3{font-size:16px;margin:0}summary p{font-size:11px;color:var(--muted);m
 .body{border-top:1px solid var(--line2);padding:6px 17px 17px 78px}
 .task{padding:11px 0;border-bottom:1px solid var(--line2)}.task:last-child{border-bottom:0}
 .task-top{display:flex;gap:9px;align-items:center;justify-content:space-between}.task b{font-size:13px}.task p{font-size:11px;color:var(--muted);margin:4px 0 0;max-width:850px}
-.current-task{margin:10px 0;border:1px solid rgba(255,116,126,.24);background:var(--blockbg);border-radius:14px;padding:13px}
-.current-task .title{font-weight:900;font-size:13px}.current-task .txt{font-size:11px;color:#e1c0c3;margin-top:4px}
+.current-task{margin:10px 0;border:1px solid rgba(245,200,91,.24);background:var(--nowbg);border-radius:14px;padding:13px}
+.current-task .title{font-weight:900;font-size:13px}.current-task .txt{font-size:11px;color:#dfd2ad;margin-top:4px}
 .user-action{margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.07);font-size:11px}.user-action strong{color:#fff}
 .ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.level{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:13px}.level b{font-size:13px}.level p{font-size:10px;color:var(--muted);margin:5px 0 0}.level .sub{font-size:9px;color:var(--muted2);margin-top:8px}
 .q01{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:15px}
@@ -98,9 +98,9 @@ summary h3{font-size:16px;margin:0}summary p{font-size:11px;color:var(--muted);m
 const PROJECT_STATE={
   milestone:"M4",
   currentGate:"Geometry / Image / Material Integration",
-  currentStatus:"NEEDS_FIX",
-  blocker:"В принятом M4 transport пока нет Face, tiling/offset, AlphaMode, Material/MaterialVariant и ряда source properties. Система правильно не придумывает defaults, но material integration нельзя закрыть, пока эти значения не получат отдельный проверенный transport.",
-  userAction:"Ничего в Roblox Studio не делать. Следующий шаг — только offline corrective contract/transport.",
+  currentStatus:"PASS_EXTERNAL · receipt pending",
+  blocker:"R1 исправление прошло независимую внешнюю проверку. Typed appearance-property transport теперь сохраняет Face, tiling/offset, AlphaMode, Material/MaterialVariant и другие source properties без придуманных defaults. Осталось только записать PASS receipt в приватный Git.",
+  userAction:"Ничего в Roblox Studio не делать. Ждём receipt commit; после него следующий offline gate — deterministic GLB exporter.",
   studio:"НЕ запускать",
   playAuthorization:"NONE"
 };
@@ -141,9 +141,9 @@ const PROJECT_STATE={
       </div>
       <div class="facts">
         <div class="fact"><div class="k">Milestone</div><div class="v">M4 · Внешний вид и assets</div></div>
-        <div class="fact"><div class="k">Статус gate</div><div class="v" style="color:#ffc0c6">NEEDS_FIX</div></div>
+        <div class="fact"><div class="k">Статус gate</div><div class="v" style="color:#ffe5aa">PASS_EXTERNAL · receipt pending</div></div>
         <div class="fact"><div class="k">Studio</div><div class="v">Не запускать</div></div>
-        <div class="fact"><div class="k">Следом</div><div class="v">Исправить transport properties</div></div>
+        <div class="fact"><div class="k">Следом</div><div class="v">PASS receipt → GLB exporter</div></div>
       </div>
     </div>
 
@@ -201,12 +201,13 @@ const PROJECT_STATE={
         <div class="task"><div class="task-top"><b>Desktop M4 Overlay</b><span class="badge b-ok">PASS_EXTERNAL</span></div><p>Frozen placement и accepted appearance собираются в deterministic canonical overlay.</p></div>
 
         <div class="current-task">
-          <div class="title">Сейчас · Geometry / Image / Material Integration — NEEDS_FIX</div>
-          <div class="txt">Geometry/image subset работает корректно и fail-closed. Но принятый transport не несёт Face, tiling/offset, AlphaMode, Material/MaterialVariant и ряд других source properties. Поэтому material application заблокирован, а gate нельзя честно закрыть как production material integration.</div>
-          <div class="user-action"><strong>Следующий инженерный шаг:</strong> отдельный additive appearance-property transport contract/extension. GLB пока не начинаем.</div>
+          <div class="title">Сейчас · Geometry / Image / Material Integration — PASS_EXTERNAL</div>
+          <div class="txt">R1 blocker закрыт: отдельный typed companion transport проводит source properties через property campaign → index → overlay → integration без второго placement graph и без invented defaults. Для формального CLOSED/PASS_EXTERNAL остался additive receipt commit.</div>
+          <div class="user-action"><strong>Следующий инженерный шаг:</strong> записать PASS receipt. После точной проверки remote HEAD — открыть новый чистый Codex chat для GLB exporter.</div>
         </div>
 
-        <div class="task"><div class="task-top"><b>GLB exporter</b><span class="badge b-next">после исправления</span></div><p>Deterministic export geometry/material/texture данных. Не начинается, пока текущий blocker не закрыт.</p></div>
+        <div class="task"><div class="task-top"><b>GLB exporter</b><span class="badge b-next">после receipt</span></div><p>Deterministic GLB 2.0 export с exact topology/seams/UV/source provenance, явной normal policy и без скрытой материализации неподдержанных Roblox semantics.</p></div>
+        <div class="task"><div class="task-top"><b>Runtime property capture adapter</b><span class="badge b-next">до E2E</span></div><p>R1 доказал offline transport/integration, но не Studio capture. До Production E2E нужен реальный runtime producer для appearance properties с теми же lifetime/revision/provenance fences.</p></div>
         <div class="task"><div class="task-top"><b>Fault / resource / cleanup gates</b><span class="badge b-next">позже</span></div><p>Corruption, stale data, partial failures, memory budgets и cleanup.</p></div>
         <div class="task"><div class="task-top"><b>Production E2E pre-run → review → один Play</b><span class="badge b-next">позже</span></div><p>До Play будет отдельный exact pre-run package и твоё явное разрешение. Automatic retry запрещён.</p></div>
         <div class="task"><div class="task-top"><b>Readback + Visual Acceptance + Q01 + Freeze</b><span class="badge b-next">финал M4</span></div><p>Технический E2E и визуальное сходство проверяются отдельно, затем M4 замораживается и передаётся в M5.</p></div>
@@ -276,7 +277,7 @@ const PROJECT_STATE={
     </details>
   </section>
 
-  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: M4 Integration NEEDS_FIX; Studio/Play не разрешены.</div>
+  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: M4 Integration PASS_EXTERNAL, receipt pending; Studio/Play не разрешены.</div>
 </div>
 </main>
 </div>
