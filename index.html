@@ -98,9 +98,9 @@ summary h3{font-size:16px;margin:0}summary p{font-size:11px;color:var(--muted);m
 const PROJECT_STATE={
   milestone:"M4",
   currentGate:"M4 Environment Source Fidelity",
-  currentStatus:"NEEDS_FIX",
-  blocker:"Independent review found M4-ENVIRONMENT-REVIEW-R1: the finite P41 profile omits current appearance-affecting Roblox sources (Lighting color/fog fields, Sky sun/moon/orientation, ColorGradingEffect). Binding architecture passed; source coverage must be corrected before runtime pre-run.",
-  userAction:"Stay in the current Environment Codex chat, record the NEEDS_FIX receipt, and correct only M4-ENVIRONMENT-REVIEW-R1. Roblox Studio and Play remain unauthorized.",
+  currentStatus:"NEEDS_FIX · R2 skybox Content routes",
+  blocker:"Environment R1 исправил Lighting/Fog/Sky orientation/Sun-Moon/ColorGrading/capability accounting, но финальный external re-review нашёл M4-ENVIRONMENT-REVIEW-R2: шесть skybox faces всё ещё используют legacy ContentId aliases вместо явных current Content routes.",
+  userAction:"Исправить только six-face Sky Content route coverage в текущем Environment Codex chat. Roblox Studio и Play не запускать.",
   studio:"НЕ запускать",
   playAuthorization:"NONE"
 };
@@ -201,7 +201,7 @@ const PROJECT_STATE={
         <div class="task"><div class="task-top"><b>Desktop M4 Overlay</b><span class="badge b-ok">PASS_EXTERNAL</span></div><p>Frozen placement и accepted appearance собираются в deterministic canonical overlay.</p></div>
 
         <div class="current-task">
-          <div class="title">Сейчас · M4 Environment Source Fidelity — NEEDS_FIX</div>
+          <div class="title">Сейчас · M4 Environment Source Fidelity — NEEDS_FIX R2</div>
           <div class="txt">P32 supersession direction, bounded cache, retry schedule и redaction прошли scoped review. Найден один blocker: typed transient kind может переопределить HTTP 401/403 и вызвать лишние retries вместо terminal denial.</div>
           <div class="user-action"><strong>Следующий инженерный шаг:</strong> исправить только failure precedence/conflict rule в текущем gate и повторить external review. Studio/Play запрещены.</div>
         </div>
@@ -209,7 +209,7 @@ const PROJECT_STATE={
         <div class="task"><div class="task-top"><b>GLB exporter</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Deterministic GLB 2.0 export с exact topology/seams/UV/source provenance, явной normal policy, независимым structural/numeric oracle и Khronos validation.</p></div>
         <div class="task"><div class="task-top"><b>Runtime property capture adapter</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Production Roblox/Luau observation boundary для appearance properties. Этот gate пока только offline implementation + deterministic fake-port/fence tests; Studio/Play запрещены.</p></div>
         <div class="task"><div class="task-top"><b>M4 closure requirements audit</b><span class="badge b-ok">COMPLETE</span></div><p>Перед любым controlled pre-run сверяем канонический критерий M4: P29, P32–P41/P43, C11 и dedicated visual fixtures. Открытые пункты получают отдельные bounded corrective gates; нельзя перескочить их ради E2E.</p></div>
-        <div class="task"><div class="task-top"><b>Asset Access / Failure / Cache Boundary</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Закрывает P32/P33/P34/P35/P43 без возврата к legacy parser, если production COREMESH dependency не обнаружена.</p></div>\n        <div class="task"><div class="task-top"><b>Appearance Multiplicity + Active MaterialVariant Source</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Закрывает оставшийся P38: несколько same-class attachments на одном owner и source fidelity активного MaterialVariant.</p></div>\n        <div class="task"><div class="task-top"><b>Environment Source Fidelity</b><span class="badge b-block">NEEDS_FIX</span></div><p>Закрывает P41: active Lighting/Sky/Atmosphere/post-effect source values до controlled runtime.</p></div>
+        <div class="task"><div class="task-top"><b>Asset Access / Failure / Cache Boundary</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Закрывает P32/P33/P34/P35/P43 без возврата к legacy parser, если production COREMESH dependency не обнаружена.</p></div>\n        <div class="task"><div class="task-top"><b>Appearance Multiplicity + Active MaterialVariant Source</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Закрывает оставшийся P38: несколько same-class attachments на одном owner и source fidelity активного MaterialVariant.</p></div>\n        <div class="task"><div class="task-top"><b>Environment Source Fidelity</b><span class="badge b-block">NEEDS_FIX R2</span></div><p>Закрывает P41: active Lighting/Sky/Atmosphere/post-effect source values до controlled runtime.</p></div>
         <div class="task"><div class="task-top"><b>Fault / resource / cleanup gates</b><span class="badge b-next">позже</span></div><p>Corruption, stale data, partial failures, memory budgets и cleanup.</p></div>
         <div class="task"><div class="task-top"><b>Production E2E pre-run → review → один Play</b><span class="badge b-next">позже</span></div><p>До Play будет отдельный exact pre-run package и твоё явное разрешение. Automatic retry запрещён.</p></div>
         <div class="task"><div class="task-top"><b>Readback + Visual Acceptance + Q01 + Freeze</b><span class="badge b-next">финал M4</span></div><p>Технический E2E и визуальное сходство проверяются отдельно, затем M4 замораживается и передаётся в M5.</p></div>
@@ -279,7 +279,7 @@ const PROJECT_STATE={
     </details>
   </section>
 
-  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: P41 Environment Source Fidelity NEEDS_FIX → correction R1; controlled Play ещё не разрешён.</div>\n</div>\n</main>
+  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: P41 Environment Source Fidelity NEEDS_FIX R2 — six skybox Content routes; Studio/Play не разрешены.</div>\n</div>\n</main>
 </div>
 <script>
 document.getElementById("sideGate").textContent=PROJECT_STATE.currentGate;
