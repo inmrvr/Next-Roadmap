@@ -99,8 +99,8 @@ const PROJECT_STATE={
   milestone:"M4",
   currentGate:"Runtime Appearance Property Capture Adapter",
   currentStatus:"NEEDS_FIX · package reproducibility",
-  blocker:"Сам GLB exporter прошёл независимые semantic/oracle/Khronos проверки. Блокер только в review ZIP: полный regression runner пока нельзя воспроизвести из чистой распаковки без внешнего historical artifact. Исправляем только packaging/reproducibility.",
-  userAction:"Передать Codex маленький corrective ZIP. Studio/Play не запускать; следующий gate пока не начинать.",
+  blocker:"M4-RPA-REVIEW-R1 закрыт независимым re-review: attachment owner binding и same-class ambiguity теперь fail-closed. Осталось записать PASS receipt. После этого обязателен M4 closure requirements audit; к Play напрямую не переходим.",
+  userAction:"Сейчас только записать PASS receipt для Runtime Property Adapter. После remote verification — M4 closure requirements audit. Roblox Studio и Play не запускать.",
   studio:"НЕ запускать",
   playAuthorization:"NONE"
 };
@@ -207,8 +207,8 @@ const PROJECT_STATE={
         </div>
 
         <div class="task"><div class="task-top"><b>GLB exporter</b><span class="badge b-block">NEEDS_FIX</span></div><p>Deterministic GLB 2.0 export с exact topology/seams/UV/source provenance, явной normal policy, независимым structural/numeric oracle и Khronos validation.</p></div>
-        <div class="task"><div class="task-top"><b>Runtime property capture adapter</b><span class="badge b-block">NEEDS_FIX</span></div><p>Production Roblox/Luau observation boundary для appearance properties. Этот gate пока только offline implementation + deterministic fake-port/fence tests; Studio/Play запрещены.</p></div>
-        <div class="task"><div class="task-top"><b>M4 closure requirements audit</b><span class="badge b-next">ОБЯЗАТЕЛЬНО ПОСЛЕ</span></div><p>Перед любым controlled pre-run сверяем канонический критерий M4: P29, P32–P41/P43, C11 и dedicated visual fixtures. Открытые пункты получают отдельные bounded corrective gates; нельзя перескочить их ради E2E.</p></div>
+        <div class="task"><div class="task-top"><b>Runtime property capture adapter</b><span class="badge b-ok">PASS_EXTERNAL</span></div><p>Production Roblox/Luau observation boundary для appearance properties. Этот gate пока только offline implementation + deterministic fake-port/fence tests; Studio/Play запрещены.</p></div>
+        <div class="task"><div class="task-top"><b>M4 closure requirements audit</b><span class="badge b-next">СЛЕДУЮЩИЙ</span></div><p>Перед любым controlled pre-run сверяем канонический критерий M4: P29, P32–P41/P43, C11 и dedicated visual fixtures. Открытые пункты получают отдельные bounded corrective gates; нельзя перескочить их ради E2E.</p></div>
         <div class="task"><div class="task-top"><b>Asset/parser/cache/environment residual gates</b><span class="badge b-next">по результату audit</span></div><p>Особое внимание: COREMESH parser P32, asset denial/error/redaction P33–P35, environment source fidelity P41, cache semantics P43 и явное C11 mapping. Не все эти пункты сейчас доказаны.</p></div>
         <div class="task"><div class="task-top"><b>Fault / resource / cleanup gates</b><span class="badge b-next">позже</span></div><p>Corruption, stale data, partial failures, memory budgets и cleanup.</p></div>
         <div class="task"><div class="task-top"><b>Production E2E pre-run → review → один Play</b><span class="badge b-next">позже</span></div><p>До Play будет отдельный exact pre-run package и твоё явное разрешение. Automatic retry запрещён.</p></div>
@@ -279,7 +279,7 @@ const PROJECT_STATE={
     </details>
   </section>
 
-  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: M4 GLB exporter implementation PASS_SCOPED; review package NEEDS_FIX; Studio/Play не разрешены.</div>
+  <div class="footer">Публичная roadmap. Engineering hashes/evidence хранятся в приватном репозитории. Текущая точка: Runtime Property Adapter PASS_EXTERNAL · receipt pending → M4 closure requirements audit; Studio/Play не разрешены.</div>
 </div>
 </main>
 </div>
