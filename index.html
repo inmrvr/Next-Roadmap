@@ -98,9 +98,9 @@ summary h3{font-size:16px;margin:0}summary p{font-size:11px;color:var(--muted);m
 const PROJECT_STATE={
   milestone:"M4",
   currentGate:"M4 Asset Access / Failure / Cache Boundary",
-  currentStatus:"NEEDS_FIX",
-  blocker:"Independent review нашёл один точечный defect в failure precedence: response.kind сейчас может переопределить HTTP 401/403 и ошибочно сделать terminal denial retryable. P32 supersession, redaction и cache architecture при этом прошли scoped review.",
-  userAction:"В текущем Asset Access Codex chat исправить только M4-ASSET-REVIEW-R1: 401/403 должны оставаться terminal denial даже при conflicting transient kind. Studio/Play не запускать.",
+  currentStatus:"PASS_EXTERNAL · receipt pending",
+  blocker:"M4-ASSET-REVIEW-R1 прошёл независимый re-review. P32 supersession, terminal denial, failure taxonomy, bounded retry, redaction и no-positive-cache/negative-cache semantics приняты. Осталось записать PASS receipt.",
+  userAction:"Сейчас только записать PASS receipt. После remote verification следующий gate — Appearance Multiplicity + Active MaterialVariant Source. Roblox Studio и Play не запускать.",
   studio:"НЕ запускать",
   playAuthorization:"NONE"
 };
@@ -143,7 +143,7 @@ const PROJECT_STATE={
         <div class="fact"><div class="k">Milestone</div><div class="v">M4 · Внешний вид и assets</div></div>
         <div class="fact"><div class="k">Статус gate</div><div class="v" style="color:#ffc0c6">NEEDS_FIX</div></div>
         <div class="fact"><div class="k">Studio</div><div class="v">Не запускать</div></div>
-        <div class="fact"><div class="k">Следом</div><div class="v">Asset Access / Failure / Cache</div></div>
+        <div class="fact"><div class="k">Следом</div><div class="v">Appearance Multiplicity + MaterialVariant</div></div>
       </div>
     </div>
 
@@ -209,7 +209,7 @@ const PROJECT_STATE={
         <div class="task"><div class="task-top"><b>GLB exporter</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Deterministic GLB 2.0 export с exact topology/seams/UV/source provenance, явной normal policy, независимым structural/numeric oracle и Khronos validation.</p></div>
         <div class="task"><div class="task-top"><b>Runtime property capture adapter</b><span class="badge b-ok">CLOSED/PASS_EXTERNAL</span></div><p>Production Roblox/Luau observation boundary для appearance properties. Этот gate пока только offline implementation + deterministic fake-port/fence tests; Studio/Play запрещены.</p></div>
         <div class="task"><div class="task-top"><b>M4 closure requirements audit</b><span class="badge b-ok">COMPLETE</span></div><p>Перед любым controlled pre-run сверяем канонический критерий M4: P29, P32–P41/P43, C11 и dedicated visual fixtures. Открытые пункты получают отдельные bounded corrective gates; нельзя перескочить их ради E2E.</p></div>
-        <div class="task"><div class="task-top"><b>Asset Access / Failure / Cache Boundary</b><span class="badge b-block">NEEDS_FIX</span></div><p>Закрывает P32/P33/P34/P35/P43 без возврата к legacy parser, если production COREMESH dependency не обнаружена.</p></div>\n        <div class="task"><div class="task-top"><b>Appearance Multiplicity + Active MaterialVariant Source</b><span class="badge b-next">ПОТОМ</span></div><p>Закрывает оставшийся P38: несколько same-class attachments на одном owner и source fidelity активного MaterialVariant.</p></div>\n        <div class="task"><div class="task-top"><b>Environment Source Fidelity</b><span class="badge b-next">ПОТОМ</span></div><p>Закрывает P41: active Lighting/Sky/Atmosphere/post-effect source values до controlled runtime.</p></div>
+        <div class="task"><div class="task-top"><b>Asset Access / Failure / Cache Boundary</b><span class="badge b-block">NEEDS_FIX</span></div><p>Закрывает P32/P33/P34/P35/P43 без возврата к legacy parser, если production COREMESH dependency не обнаружена.</p></div>\n        <div class="task"><div class="task-top"><b>Appearance Multiplicity + Active MaterialVariant Source</b><span class="badge b-next">СЛЕДУЮЩИЙ</span></div><p>Закрывает оставшийся P38: несколько same-class attachments на одном owner и source fidelity активного MaterialVariant.</p></div>\n        <div class="task"><div class="task-top"><b>Environment Source Fidelity</b><span class="badge b-next">ПОТОМ</span></div><p>Закрывает P41: active Lighting/Sky/Atmosphere/post-effect source values до controlled runtime.</p></div>
         <div class="task"><div class="task-top"><b>Fault / resource / cleanup gates</b><span class="badge b-next">позже</span></div><p>Corruption, stale data, partial failures, memory budgets и cleanup.</p></div>
         <div class="task"><div class="task-top"><b>Production E2E pre-run → review → один Play</b><span class="badge b-next">позже</span></div><p>До Play будет отдельный exact pre-run package и твоё явное разрешение. Automatic retry запрещён.</p></div>
         <div class="task"><div class="task-top"><b>Readback + Visual Acceptance + Q01 + Freeze</b><span class="badge b-next">финал M4</span></div><p>Технический E2E и визуальное сходство проверяются отдельно, затем M4 замораживается и передаётся в M5.</p></div>
