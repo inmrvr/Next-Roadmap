@@ -101,7 +101,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <a href="#q01"><span class="bullet"></span>Q01 reviews</a>
   <a href="#tech"><span class="bullet"></span>Технические данные</a>
  </nav>
- <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Plugin Host Load Authorization</div><div class="s">Authorization preparation = CLOSED/PASS_EXTERNAL. Сейчас требуется только exact user decision для одного reviewed load/install action. До решения Studio/plugin load/provisioning/Play = NOT AUTHORIZED.</div></div>
+  <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Rollback User Decision</div><div class="s">Rollback preparation = CLOSED/PASS_EXTERNAL. Exact plugin file всё ещё установлен. Следующий шаг — только exact user decision на одну offline rollback action; delete пока NOT AUTHORIZED.</div></div>
  <div class="sidebox"><div class="k">До финального релиза</div><div class="v">M5 → M6 → M7 → M8</div><div class="s">Terrain, UI/small-live, реальные участки карты, затем full-map release.</div></div>
 </aside>
 
@@ -123,7 +123,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
    <div class="k">Где мы сейчас</div>
    <h2>M4 Appearance / Assets</h2>
    <p>
-     M1 и M2 закрыты как CLOSED/PASS; M3 закрыт и frozen. M4 остаётся OPEN. Fixture Preparation, Context Resolution Plan и Collector / Plugin-Security Host Freeze закрыты scoped external PASS. Plugin-host load/install authorization preparation тоже прошла PASS_EXTERNAL: R1–R5 RESOLVED. Сейчас требуется exact user decision для manifest SHA 89683e3a…0127 / action m4-plugin-host-load-install-action-001 / plugin SHA dd56cefe…2c36. До решения Studio/plugin load/collector execution/provisioning/Play не разрешены.
+     M1 и M2 закрыты как CLOSED/PASS; M3 закрыт и frozen. M4 остаётся OPEN. Plugin-host load/install action consumed: install=VERIFIED_SUCCESS, load=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION, retry=false. Historical UNEXPECTED_SIDE_EFFECT admission сохранён byte-exact; Studio-global network/OTA не приписывается plugin без causal evidence. Exact rollback authorization preparation = CLOSED/PASS_EXTERNAL; rollback delete всё ещё не авторизован и требует отдельного exact user decision.
    </p>
   </div>
   <div class="stats">
@@ -187,7 +187,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
 </div>
 
 <div class="phase" id="m4">
-  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Context plan, collector/host freeze и plugin-host load authorization preparation закрыты scoped external PASS. Сейчас требуется explicit user decision для exact reviewed load/install action.</div></div></div><span class="pill p-now">OPEN · USER DECISION REQUIRED</span></div>
+  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Consumed load/install history сохранена; human interpretation уточнена как install success / load inconclusive. Текущая bounded activity — exact offline rollback authorization preparation review.</div></div></div><span class="pill p-now">OPEN · ROLLBACK PREPARATION REVIEW</span></div>
  <div class="steps">
   <div class="step ok"><div class="n">1</div><div><h4>A06 scoped external mesh</h4><div class="plain">Controlled external mesh capability закрыта в принятом scoped объёме.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_SCOPED</span></div></div>
   <div class="step ok"><div class="n">2</div><div><h4>M4-D01 contract / M4G2</h4><div class="plain">Exact geometry/content/lifetime rules и frozen placement binding.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
@@ -205,7 +205,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <div class="step ok"><div class="n">14</div><div><h4>Pre-Provision Context Resolution Plan</h4><div class="plain">External PASS: R1–R12 RESOLVED. Exact phase model, authorization ordering, output admission, transport и consumed-attempt evidence приняты только как plan authority; это не Studio authorization.</div><div class="details"><div class="detail"><div class="k">Accepted status</div><div class="v">CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
   <div class="step ok"><div class="n">15</div><div><h4>Offline collector / Plugin-Security host freeze</h4><div class="plain">Exact collector source, inert host source, deterministic single-file .lua package, bounded SHA256 and unified action-manifest builder identity frozen.</div><div class="details"><div class="detail"><div class="k">Accepted status</div><div class="v">CLOSED/PASS_EXTERNAL_COLLECTOR_HOST_FREEZE_ONLY · R1–R5 RESOLVED</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
   <div class="step ok"><div class="n">16</div><div><h4>Independent collector / host safety review</h4><div class="plain">External PASS verified freeze/package integrity, privacy-safe diagnostics, bounded SHA256, deterministic Lua package and additive PASS-receipt builder phase model.</div></div><div class="ss"><span class="pill p-done">PASS_EXTERNAL</span></div></div>
-  <div class="step active"><div class="n">17</div><div><h4>Plugin-host load / install authorization</h4><div class="plain">Preparation прошла PASS_EXTERNAL: R1–R5 RESOLVED. Exact Git-published preparation PASS, user-receipt publication verifier, post-action binding и destination preflight проверены. Сейчас требуется только явное решение пользователя на один exact reviewed load/install action.</div><div class="details"><div class="detail"><div class="k">Preparation status</div><div class="v">CLOSED/PASS_EXTERNAL_PLUGIN_HOST_LOAD_AUTHORIZATION_PREPARATION_ONLY</div></div><div class="detail"><div class="k">Manifest SHA256</div><div class="v">89683e3a167307fe84f201b9e210b19ca33a334ea3b275605d59eedfdde90127</div></div><div class="detail"><div class="k">Action ID</div><div class="v">m4-plugin-host-load-install-action-001</div></div><div class="detail"><div class="k">Plugin SHA256</div><div class="v">dd56cefe70c8452cef61fb1e724776580b936f9e4a7b813a06a5c0012d3a2c36</div></div></div></div><div class="ss"><span class="pill p-now">CURRENT · USER DECISION REQUIRED</span><span class="pill p-lock">LOAD NOT AUTHORIZED</span></div></div>
+  <div class="step active"><div class="n">17</div><div><h4>Plugin-host action history + exact offline rollback decision</h4><div class="plain">One load/install action consumed. Install verified; load remains inconclusive due to manual user closure. Rollback preparation is now CLOSED/PASS_EXTERNAL after R1–R3 review: exact Windows target, Git-object eligibility and eligibility-bound post-rollback admission are accepted. The installed plugin file remains present; deletion still requires a separate exact user decision and published receipt.</div><div class="details"><div class="detail"><div class="k">Human interpretation</div><div class="v">INSTALL=VERIFIED_SUCCESS · LOAD=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION</div></div><div class="detail"><div class="k">Rollback preparation</div><div class="v">CLOSED/PASS_EXTERNAL_PLUGIN_HOST_ROLLBACK_AUTHORIZATION_PREPARATION_ONLY</div></div><div class="detail"><div class="k">Rollback manifest SHA256</div><div class="v">1b258a155b7df2a6b41abafe2a28070c569ff523c97bd55c213eebb234286fd4</div></div><div class="detail"><div class="k">Target SHA256</div><div class="v">dd56cefe70c8452cef61fb1e724776580b936f9e4a7b813a06a5c0012d3a2c36</div></div></div></div><div class="ss"><span class="pill p-now">CURRENT · USER DECISION REQUIRED</span><span class="pill p-lock">DELETE NOT AUTHORIZED · NO RETRY</span></div></div>
   <div class="step wait"><div class="n">18</div><div><h4>Freeze PRE_AUTHORIZATION_ACTION_MANIFEST + independent review</h4><div class="plain">Manifest binds exact plan, host, collector, schema, inventory, PlaceId, action/ordinal, concrete timeout, canonicalization и self-verifying transport.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
   <div class="step stop"><div class="n">19</div><div><h4>Explicit user authorization → exact action-manifest SHA / action ID</h4><div class="plain">User authorizes уже существующий reviewed manifest. Будущий receipt SHA на этом шаге не требуется и ещё не существует.</div></div><div class="ss"><span class="pill p-lock">NOT AUTHORIZED</span></div></div>
   <div class="step wait"><div class="n">20</div><div><h4>POST_DECISION_AUTHORIZATION_RECEIPT commit / push / remote verification</h4><div class="plain">Receipt создаётся только после решения, ссылается на manifest/decision, коммитится и пушится; action ineligible до remote HEAD verification.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
@@ -333,7 +333,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <div class="kv"><div class="k">Fixture Provisioning Design</div><div class="v">CLOSED/PASS_EXTERNAL_DESIGN_ONLY</div></div>
   <div class="kv"><div class="k">Fixture Provisioning Preparation</div><div class="v">CLOSED/PASS_EXTERNAL_PREPARATION_ONLY · R1/R2/R3/R4 RESOLVED</div></div>
   <div class="kv"><div class="k">Context Resolution Plan</div><div class="v">CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY · R1–R12 RESOLVED</div></div>
-  <div class="kv"><div class="k">Current bounded activity</div><div class="v">PLUGIN_HOST_LOAD_AUTHORIZATION_PREPARATION_OPEN_PENDING_EXTERNAL_REVIEW · NO ROBLOX AUTHORIZATION</div></div>
+  <div class="kv"><div class="k">Current bounded activity</div><div class="v">ROLLBACK_PREPARATION_CLOSED_PASS_EXTERNAL · EXACT USER DECISION REQUIRED · DELETE NOT AUTHORIZED</div></div>
   <div class="kv"><div class="k">M4</div><div class="v">OPEN</div></div>
   <div class="kv"><div class="k">M5–M8</div><div class="v">NOT_STARTED</div></div>
   <div class="kv"><div class="k">C11</div><div class="v">OPEN / runtime-only</div></div>
@@ -352,7 +352,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
  <div class="warn"><b>Важно:</b> эта карта специально не обещает «100% сохранение любой карты». Full acceptance возможен только после M8/F01, а непреодолимые client visibility/permission ограничения должны остаться явно обозначенными UNKNOWN/unavailable.</div>
 </section>
 
-<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: M4 plugin-host exact user authorization · no load/install authorization yet</span></footer>
+<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: M4 exact rollback user decision · delete not authorized · no retry</span></footer>
 </div>
 </main>
 </div>
@@ -371,9 +371,9 @@ M4: OPEN
   Fixture Provisioning Design: CLOSED/PASS_EXTERNAL_DESIGN_ONLY
   Preparation: CLOSED/PASS_EXTERNAL_PREPARATION_ONLY; R1/R2/R3/R4 RESOLVED
   Context Resolution Plan: CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY; R1-R12 RESOLVED
-  Current: PLUGIN_HOST_LOAD_AUTHORIZATION_PREPARATION_OPEN_PENDING_EXTERNAL_REVIEW; collector/host R1-R5 RESOLVED; no Roblox authorization
+  Current: PLUGIN_HOST_ROLLBACK_AUTHORIZATION_PREPARATION_OPEN_PENDING_EXTERNAL_REVIEW; load action consumed; install=VERIFIED_SUCCESS; load=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION; retry=false
   fixtureProvisioned=false; fixtureAdmission=NOT_STARTED
-  Provisioning/Studio/Play: NOT AUTHORIZED
+  Further Studio / rollback / provisioning / Play: NOT AUTHORIZED
   controlledRuntimeEligible=false; runtime outcomes=NOT_YET_OBSERVED
   C11=OPEN/runtime-only; visual acceptance=PARTIAL/OPEN; final Q01=OPEN
 M5: NOT_STARTED — Terrain/environment E2E
