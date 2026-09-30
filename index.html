@@ -101,7 +101,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <a href="#q01"><span class="bullet"></span>Q01 reviews</a>
   <a href="#tech"><span class="bullet"></span>Технические данные</a>
  </nav>
-  <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Action Manifest R12–R15 Correction</div><div class="s">Step 18 remains open. External red-team NEEDS_FIX: R12 runtime-authority overbinding, R13 live-executor ordering, R14 failure-admission integrity, R15 roadmap HTML. Manifest bytes remain accepted. No runtime authorization.</div></div>
+  <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Live Atomic Collector Executor</div><div class="s">Step 18 manifest freeze = CLOSED/PASS_EXTERNAL. Current unnumbered prerequisite before host readiness: freeze/review the production live atomic collector executor. Studio/collector/provisioning/Play = NOT AUTHORIZED.</div></div>
  <div class="sidebox"><div class="k">До финального релиза</div><div class="v">M5 → M6 → M7 → M8</div><div class="s">Terrain, UI/small-live, реальные участки карты, затем full-map release.</div></div>
 </aside>
 
@@ -123,7 +123,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
    <div class="k">Где мы сейчас</div>
    <h2>M4 Appearance / Assets</h2>
    <p>
-     M1 и M2 закрыты как CLOSED/PASS; M3 закрыт и frozen. M4 остаётся OPEN. Plugin-host load/install action consumed: install=VERIFIED_SUCCESS, load=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION, retry=false. Historical UNEXPECTED_SIDE_EFFECT admission сохранён byte-exact; Studio-global network/OTA не приписывается plugin без causal evidence. Exact rollback action consumed with SUCCESS_EXACT_FILE_REMOVED; target absent; no retry or second action.
+     M1 и M2 закрыты как CLOSED/PASS; M3 закрыт и frozen. M4 остаётся OPEN. Plugin-host load/install action consumed: install=VERIFIED_SUCCESS, load=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION, retry=false. Historical UNEXPECTED_SIDE_EFFECT admission сохранён byte-exact; exact rollback completed with target absent. Step 18 PRE_AUTHORIZATION_ACTION_MANIFEST freeze теперь CLOSED/PASS_EXTERNAL; следующий offline prerequisite — live atomic collector executor freeze/review до host readiness.
    </p>
   </div>
   <div class="stats">
@@ -187,7 +187,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
 </div>
 
 <div class="phase" id="m4">
-  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Plugin/rollback history preserved. Step 18 remains open: exact action manifest accepted, external red-team found R12–R15 blockers to correct in the same gate.</div></div></div><span class="pill p-now">OPEN · R12–R15 NEEDS_FIX</span></div>
+  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Plugin/rollback history preserved. Step 18 PRE_AUTHORIZATION_ACTION_MANIFEST freeze is CLOSED/PASS_EXTERNAL with R1–R15 resolved. Current prerequisite before host readiness is offline live atomic collector executor freeze/review.</div></div></div><span class="pill p-now">OPEN · LIVE EXECUTOR PREREQUISITE</span></div>
  <div class="steps">
   <div class="step ok"><div class="n">1</div><div><h4>A06 scoped external mesh</h4><div class="plain">Controlled external mesh capability закрыта в принятом scoped объёме.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_SCOPED</span></div></div>
   <div class="step ok"><div class="n">2</div><div><h4>M4-D01 contract / M4G2</h4><div class="plain">Exact geometry/content/lifetime rules и frozen placement binding.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
@@ -206,8 +206,8 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <div class="step ok"><div class="n">15</div><div><h4>Offline collector / Plugin-Security host freeze</h4><div class="plain">Exact collector source, inert host source, deterministic single-file .lua package, bounded SHA256 and unified action-manifest builder identity frozen.</div><div class="details"><div class="detail"><div class="k">Accepted status</div><div class="v">CLOSED/PASS_EXTERNAL_COLLECTOR_HOST_FREEZE_ONLY · R1–R5 RESOLVED</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
   <div class="step ok"><div class="n">16</div><div><h4>Independent collector / host safety review</h4><div class="plain">External PASS verified freeze/package integrity, privacy-safe diagnostics, bounded SHA256, deterministic Lua package and additive PASS-receipt builder phase model.</div></div><div class="ss"><span class="pill p-done">PASS_EXTERNAL</span></div></div>
   <div class="step ok"><div class="n">17</div><div><h4>Plugin-host history + exact offline rollback</h4><div class="plain">Load/install history remains preserved: install verified, load inconclusive due to manual user closure. The separately authorized exact rollback derived ONE_PLUGIN_HOST_ROLLBACK_ACTION, passed frozen production preflight, deleted only the exact plugin file, and was admitted as SUCCESS_EXACT_FILE_REMOVED. Target is absent; no Studio/plugin/collector/Play/provisioning action occurred.</div><div class="details"><div class="detail"><div class="k">Human interpretation</div><div class="v">INSTALL=VERIFIED_SUCCESS · LOAD=INCONCLUSIVE_DUE_TO_USER_INTERRUPTION</div></div><div class="detail"><div class="k">Rollback outcome</div><div class="v">SUCCESS_EXACT_FILE_REMOVED · ACTION CONSUMED</div></div><div class="detail"><div class="k">Evidence SHA256</div><div class="v">7a750239703a53301e2db2c10be46f21bcaeda753ab2a5ccbbab9baf875215e1</div></div><div class="detail"><div class="k">Target state</div><div class="v">ABSENT · Plugins directory preserved</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL EVIDENCE</span><span class="pill p-lock">NO RETRY · NO SECOND ACTION</span></div></div>
-  <div class="step active"><div class="n">18</div><div><h4>PRE_AUTHORIZATION_ACTION_MANIFEST red-team closure</h4><div class="plain">Exact 3,680-byte manifest remains accepted. Latest full external red-team review returns NEEDS_FIX on R12–R15: split review vs runtime authorities, require live atomic executor before host readiness, bind consumed failure admission to genuine eligibility, and repair canonical roadmap structure. Same step 18; no new milestone.</div></div><div class="ss"><span class="pill p-now">R12–R15 NEEDS_FIX · SAME STEP 18</span></div></div>
-  <div class="step stop"><div class="n">19</div><div><h4>Explicit user authorization → exact action-manifest SHA / action ID</h4><div class="plain">User authorizes уже существующий reviewed manifest. Будущий receipt SHA на этом шаге не требуется и ещё не существует.</div></div><div class="ss"><span class="pill p-lock">NOT AUTHORIZED</span></div></div>
+  <div class="step ok"><div class="n">18</div><div><h4>PRE_AUTHORIZATION_ACTION_MANIFEST freeze + external red-team review</h4><div class="plain">Exact 3,680-byte manifest is independently accepted. R1–R15 are resolved, including PASS ordering, authority split, real remote proof, loaded-session semantics, failure admission and live-executor-before-host-readiness ordering.</div><div class="details"><div class="detail"><div class="k">Accepted status</div><div class="v">CLOSED/PASS_EXTERNAL_PRE_AUTHORIZATION_ACTION_MANIFEST_ONLY</div></div><div class="detail"><div class="k">Manifest SHA256</div><div class="v">a6f0fb024e0d8a938074e99fa5f4996b4d527641cdf056d0a5e0c2b4f768f6e4</div></div></div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL · R1–R15 RESOLVED</span></div></div>
+  <div class="step stop"><div class="n">19</div><div><h4>Explicit user authorization → exact action-manifest SHA / action ID</h4><div class="plain">BLOCKED before this step: first freeze/review the live atomic collector executor, then separately restore exact host readiness. Only after both prerequisites may a collector user decision be requested.</div></div><div class="ss"><span class="pill p-lock">BLOCKED · EXECUTOR + HOST READINESS REQUIRED</span></div></div>
   <div class="step wait"><div class="n">20</div><div><h4>POST_DECISION_AUTHORIZATION_RECEIPT commit / push / remote verification</h4><div class="plain">Receipt создаётся только после решения, ссылается на manifest/decision, коммитится и пушится; action ineligible до remote HEAD verification.</div></div><div class="ss"><span class="pill p-next">Pending</span></div></div>
   <div class="step stop"><div class="n">21</div><div><h4>ONE read-only Studio context-resolution action becomes eligible</h4><div class="plain">Только после точной receipt publication verification. Failure consumes action; retry и second action не разрешены.</div></div><div class="ss"><span class="pill p-lock">NOT AUTHORIZED / INELIGIBLE</span></div></div>
   <div class="step wait"><div class="n">22</div><div><h4>POST_ACTION_ATTEMPT_RECEIPT + transport verification</h4><div class="plain">Reviewed public offline workflow выдаёт exactly one canonical outcome after eligibility. Base64URL chunks проверяются по order/count/length/SHA256/caps/end marker до JSON parse; consumed failures never lose the receipt.</div></div><div class="ss"><span class="pill p-next">Pending actual attempt</span></div></div>
@@ -333,7 +333,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <div class="kv"><div class="k">Fixture Provisioning Design</div><div class="v">CLOSED/PASS_EXTERNAL_DESIGN_ONLY</div></div>
   <div class="kv"><div class="k">Fixture Provisioning Preparation</div><div class="v">CLOSED/PASS_EXTERNAL_PREPARATION_ONLY · R1/R2/R3/R4 RESOLVED</div></div>
   <div class="kv"><div class="k">Context Resolution Plan</div><div class="v">CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY · R1–R12 RESOLVED</div></div>
-  <div class="kv"><div class="k">Current bounded activity</div><div class="v">PRE_AUTHORIZATION_ACTION_MANIFEST step 18 · EXTERNAL NEEDS_FIX R12–R15 · manifest bytes accepted</div></div>
+  <div class="kv"><div class="k">Current bounded activity</div><div class="v">LIVE_ATOMIC_COLLECTOR_EXECUTOR FREEZE/REVIEW prerequisite · step 18 manifest CLOSED/PASS_EXTERNAL</div></div>
   <div class="kv"><div class="k">M4</div><div class="v">OPEN</div></div>
   <div class="kv"><div class="k">M5–M8</div><div class="v">NOT_STARTED</div></div>
   <div class="kv"><div class="k">C11</div><div class="v">OPEN / runtime-only</div></div>
@@ -352,7 +352,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
  <div class="warn"><b>Важно:</b> эта карта специально не обещает «100% сохранение любой карты». Full acceptance возможен только после M8/F01, а непреодолимые client visibility/permission ограничения должны остаться явно обозначенными UNKNOWN/unavailable.</div>
 </section>
 
-<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: PRE_AUTHORIZATION_ACTION_MANIFEST step 18 · external NEEDS_FIX R12–R15 · no runtime authorization</span></footer>
+<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: live atomic collector executor freeze/review prerequisite · step 18 manifest CLOSED/PASS_EXTERNAL</span></footer>
 </div>
 </main>
 </div>
@@ -371,7 +371,7 @@ M4: OPEN
   Fixture Provisioning Design: CLOSED/PASS_EXTERNAL_DESIGN_ONLY
   Preparation: CLOSED/PASS_EXTERNAL_PREPARATION_ONLY; R1/R2/R3/R4 RESOLVED
   Context Resolution Plan: CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY; R1-R12 RESOLVED
-  Current: PRE_AUTHORIZATION_ACTION_MANIFEST step 18 · R1/R2 resolved · R3 + R4–R11 corrected pending external review
+  Current: live atomic collector executor freeze/review prerequisite · step 18 manifest CLOSED/PASS_EXTERNAL
   fixtureProvisioned=false; fixtureAdmission=NOT_STARTED
   Further Studio / rollback retry / provisioning / Play: NOT AUTHORIZED
   controlledRuntimeEligible=false; runtime outcomes=NOT_YET_OBSERVED
