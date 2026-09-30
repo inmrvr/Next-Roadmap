@@ -101,7 +101,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <a href="#q01"><span class="bullet"></span>Q01 reviews</a>
   <a href="#tech"><span class="bullet"></span>Технические данные</a>
  </nav>
-  <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Live Atomic Collector Executor R9–R12 Correction Review</div><div class="s">Step 18 manifest freeze = CLOSED/PASS_EXTERNAL. Second executor review = NEEDS_FIX R9–R12; combined offline correction = OPEN_PENDING_EXTERNAL_REVIEW. Studio/collector/provisioning/Play = NOT AUTHORIZED.</div></div>
+  <div class="sidebox"><div class="k">Текущая точка</div><div class="v">M4 — Live Atomic Collector Executor NEEDS_FIX R13–R15</div><div class="s">Step 18 manifest freeze = CLOSED/PASS_EXTERNAL. Third executor review = NEEDS_FIX R13–R15; combined offline correction/repackage/rebind is required. Studio/collector/provisioning/Play = NOT AUTHORIZED.</div></div>
  <div class="sidebox"><div class="k">До финального релиза</div><div class="v">M5 → M6 → M7 → M8</div><div class="s">Terrain, UI/small-live, реальные участки карты, затем full-map release.</div></div>
 </aside>
 
@@ -187,7 +187,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
 </div>
 
 <div class="phase" id="m4">
-  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Plugin/rollback history preserved. Step 18 PRE_AUTHORIZATION_ACTION_MANIFEST freeze is CLOSED/PASS_EXTERNAL with R1–R15 resolved. Executor NEEDS_FIX R9–R12 is recorded; one combined offline correction is OPEN_PENDING_EXTERNAL_REVIEW before host readiness.</div></div></div><span class="pill p-now">OPEN · R9–R12 CORRECTION REVIEW</span></div>
+  <div class="phase-head"><div class="phase-title"><div class="phase-icon">M4</div><div><h3>Appearance / Assets</h3><div class="phase-desc">Plugin/rollback history preserved. Step 18 PRE_AUTHORIZATION_ACTION_MANIFEST freeze is CLOSED/PASS_EXTERNAL with R1–R15 resolved. Executor review history is preserved through third external NEEDS_FIX R13–R15. One combined offline R13–R15 correction/repackage/rebind is required before another external review and any host readiness.</div></div></div><span class="pill p-now">OPEN · NEEDS_FIX R13–R15</span></div>
  <div class="steps">
   <div class="step ok"><div class="n">1</div><div><h4>A06 scoped external mesh</h4><div class="plain">Controlled external mesh capability закрыта в принятом scoped объёме.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_SCOPED</span></div></div>
   <div class="step ok"><div class="n">2</div><div><h4>M4-D01 contract / M4G2</h4><div class="plain">Exact geometry/content/lifetime rules и frozen placement binding.</div></div><div class="ss"><span class="pill p-done">CLOSED/PASS_EXTERNAL</span></div></div>
@@ -333,7 +333,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
   <div class="kv"><div class="k">Fixture Provisioning Design</div><div class="v">CLOSED/PASS_EXTERNAL_DESIGN_ONLY</div></div>
   <div class="kv"><div class="k">Fixture Provisioning Preparation</div><div class="v">CLOSED/PASS_EXTERNAL_PREPARATION_ONLY · R1/R2/R3/R4 RESOLVED</div></div>
   <div class="kv"><div class="k">Context Resolution Plan</div><div class="v">CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY · R1–R12 RESOLVED</div></div>
-  <div class="kv"><div class="k">Current bounded activity</div><div class="v">LIVE_ATOMIC_COLLECTOR_EXECUTOR second review NEEDS_FIX R9–R12 · combined correction OPEN_PENDING_EXTERNAL_REVIEW · step 18 manifest CLOSED/PASS_EXTERNAL</div></div>
+  <div class="kv"><div class="k">Current bounded activity</div><div class="v">LIVE_ATOMIC_COLLECTOR_EXECUTOR third external review NEEDS_FIX R13–R15 · combined offline correction/repackage/rebind required · step 18 manifest CLOSED/PASS_EXTERNAL</div></div>
   <div class="kv"><div class="k">M4</div><div class="v">OPEN</div></div>
   <div class="kv"><div class="k">M5–M8</div><div class="v">NOT_STARTED</div></div>
   <div class="kv"><div class="k">C11</div><div class="v">OPEN / runtime-only</div></div>
@@ -352,7 +352,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.04em;margin:8px
  <div class="warn"><b>Важно:</b> эта карта специально не обещает «100% сохранение любой карты». Full acceptance возможен только после M8/F01, а непреодолимые client visibility/permission ограничения должны остаться явно обозначенными UNKNOWN/unavailable.</div>
 </section>
 
-<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: executor R9–R12 combined correction OPEN_PENDING_EXTERNAL_REVIEW · step 18 manifest CLOSED/PASS_EXTERNAL</span></footer>
+<footer class="footer"><span>SynSaveinstance Next · Full Master Roadmap M0–M8</span><span>Current: executor third review NEEDS_FIX R13–R15 · offline correction/repackage/rebind required · step 18 manifest CLOSED/PASS_EXTERNAL</span></footer>
 </div>
 </main>
 </div>
@@ -371,7 +371,7 @@ M4: OPEN
   Fixture Provisioning Design: CLOSED/PASS_EXTERNAL_DESIGN_ONLY
   Preparation: CLOSED/PASS_EXTERNAL_PREPARATION_ONLY; R1/R2/R3/R4 RESOLVED
   Context Resolution Plan: CLOSED/PASS_EXTERNAL_CONTEXT_RESOLUTION_PLAN_ONLY; R1-R12 RESOLVED
-  Current: live atomic collector executor R9-R12 combined correction OPEN_PENDING_EXTERNAL_REVIEW · step 18 manifest CLOSED/PASS_EXTERNAL
+  Current: live atomic collector executor third review NEEDS_FIX R13-R15 · offline correction/repackage/rebind required · step 18 manifest CLOSED/PASS_EXTERNAL
   fixtureProvisioned=false; fixtureAdmission=NOT_STARTED
   Further Studio / rollback retry / provisioning / Play: NOT AUTHORIZED
   controlledRuntimeEligible=false; runtime outcomes=NOT_YET_OBSERVED
